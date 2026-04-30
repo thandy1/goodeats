@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <title>GoodEats</title>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="px-10 py-4 sticky top-0 z-50">
+        <div class="flex jusitfy-between items-center lg:gap-10 gap-4">
+            <img src="../images/logo.png" alt="GoodEats logo" class="w-8 h-8">
+            <h1 class="text-xl font-bold">GoodEats</h1>
+
+            <label for="nav-toggle" class="block lg:hidden cursor-pointer text-2xl">☰</label>
+            
+            <!-- Desktop nav  -->
+            <nav class="hidden lg:flex">
+                <ul class="flex items-center gap-10 list-none py-4">
+                    <li><a href="pages/index.html">Home</a></li>
+                    <li><a href="pages/menu.html">Menu</a></li>
+                    <li><a href="pages/cart.html">Cart</a></li>
+                    <li><a href="pages/about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Hidden checkbox for navigation links -->
+        <input type="checkbox" id="nav-toggle" class="hidden peer">
+
+        <!-- Mobile nav -->
+        <nav class="hidden lg:hidden peer-checked:block">
+            <ul class="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 list-none py-4 lg:py-0">
+                <li><a href="pages/index.html">Home</a></li>
+                <li><a href="pages/menu.html">Menu</a></li>
+                <li><a href="pages/cart.html">Cart</a></li>
+                <li><a href="pages/about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero section -->
+        <section id="hero-section" class="w-full relative flex justify-center items-center">
+            <!-- bg image, headline, CTA button go here -->
+
+            <!-- Dark overlay for text readability -->
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="relative z-10 text-center text-white px-6">
+                <h2 class="text-4xl lg:text-6xl font-bold mb-4">Big Flavors, <br>One Spot.</h2>
+                <p>Burgers, tacos, pizza, and more &mdash; all under one roof. Fresh ingredients, bold taste, ready when you are.</p>
+            </div>
+            <button type="button" id="cta-button">ORDER NOW</button>
+        </section>
+
+        <!-- Featured items section -->
+        <section id="featured-items">
+            <div class="max-w-6xl mx-auto px-6">
+                <!-- Grid of 6 items -->
+            </div>
+        </section>
+
+        <!-- Contact Us section -->
+        <section id="contact-us">
+            <!-- Hours of operation, email, phone, location -->
+        </section>
+    </main>
+
+    <footer>
+        <!-- Disclaimer and extra information befitting a footer. Maybe Navigation that maps to a specific section in each page.-->
+    </footer>
+
+</body>
+</html>
