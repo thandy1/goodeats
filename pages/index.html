@@ -3,63 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" type="image/png" href="../images/logo.png">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <title>GoodEats</title>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <header class="px-10 py-4 sticky top-0 z-50">
-        <div class="flex jusitfy-between items-center lg:gap-10 gap-4">
-            <img src="../images/logo.png" alt="GoodEats logo" class="w-8 h-8">
-            <h1 class="text-xl font-bold">GoodEats</h1>
+    <!-- Header -->
+    <header>
+        
+        <!-- Checkbox toggler -->
+        <input type="checkbox" id="nav-toggle">
+        <!-- Hamburger menu -->
+        <label for="nav-toggle" id="hamburger-menu">☰</label>
 
-            <label for="nav-toggle" class="block lg:hidden cursor-pointer text-2xl">☰</label>
-            
-            <!-- Desktop nav  -->
-            <nav class="hidden lg:flex">
-                <ul class="flex items-center gap-10 list-none py-4">
-                    <li><a href="pages/index.html">Home</a></li>
-                    <li><a href="pages/menu.html">Menu</a></li>
-                    <li><a href="pages/cart.html">Cart</a></li>
-                    <li><a href="pages/about.html">About Us</a></li>
-                </ul>
-            </nav>
+        <!-- Restraunt name -->
+        <h1>GoodEats</h1>
+     
+        <!-- Navbar -->
+        <nav id="navbar">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="cart.html">Cart</a>
+            <a href="about.html">About Us</a>
+        </nav>
+        
+        <!-- Static icon -->
+        <div id="icons">
+            <i class="ph ph-magnifying-glass"></i>
+            <a href="cart.html"><i class="ph ph-shopping-cart"></i></a>
+            <i class="ph ph-user"></i>
         </div>
 
-        <!-- Hidden checkbox for navigation links -->
-        <input type="checkbox" id="nav-toggle" class="hidden peer">
-
-        <!-- Mobile nav -->
-        <nav class="hidden lg:hidden peer-checked:block">
-            <ul class="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 list-none py-4 lg:py-0">
-                <li><a href="pages/index.html">Home</a></li>
-                <li><a href="pages/menu.html">Menu</a></li>
-                <li><a href="pages/cart.html">Cart</a></li>
-                <li><a href="pages/about.html">About Us</a></li>
-            </ul>
-        </nav>
     </header>
 
+    <!-- Page content -->
     <main>
         <!-- Hero section -->
-        <section id="hero-section" class="w-full relative flex justify-center items-center">
-            <!-- bg image, headline, CTA button go here -->
-
-            <!-- Dark overlay for text readability -->
-            <div class="absolute inset-0 bg-black/50"></div>
-            <div class="relative z-10 text-center text-white px-6">
-                <h2 class="text-4xl lg:text-6xl font-bold mb-4">Big Flavors, <br>One Spot.</h2>
-                <p>Burgers, tacos, pizza, and more &mdash; all under one roof. Fresh ingredients, bold taste, ready when you are.</p>
+        <section id="hero-section">
+            <div id="hero-image">
+                <img src="../images/index_assets/hero.jpg" alt="Delicious food spread from GoodEats">
             </div>
-            <button type="button" id="cta-button">ORDER NOW</button>
+            <div id="hero-content">
+                <h2 class="text-2xl">Big Flavors, <br><span class="light-green">One Spot.</span></h2>
+                <p class="light-gray text-md">Burgers, tacos, pizza, and more &mdash; all under one roof. Fresh ingredients, bold taste, ready when you are.</p>
+                <button type="button" id="cta-button">ORDER NOW</button>
+            </div>
         </section>
 
         <!-- Featured items section -->
         <section id="featured-items">
-            <div class="max-w-6xl mx-auto px-6">
+            <div>
                 <!-- Grid of 6 items -->
             </div>
         </section>

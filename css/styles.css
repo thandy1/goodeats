@@ -1,25 +1,252 @@
-/* Need to add fonts for certain sections */
+/* Color Palette */
 :root {
-    --off-white: #CBD6D4;
+    /* Colors */
+    --off-white: #F5F5F0;
     --white: #FFFFFF;
     --black: #000000;
-    --dark-gray: #8a8a8a;
-    --light-gray: #BABABA;
+    --dark-gray: #424242;
+    --light-gray: #9c9c9c;
     --dark-green: #005736;
     --light-green: #00b370;
+
+    /* Typography: mobile */
+    --text-sm: 1.4rem; 
+    --text-base: 1.6rem; 
+    --text-md: 1.8rem; 
+    --text-lg: 2.4rem; 
+    --text-xl: 3rem; 
+    --text-2xl: 3.5rem; 
 }
 
-/* Reset */
+/* Color Utility Classes */
+.off-white { color: var(--off-white); }
+.white { color: var(--white);}
+.black { color: var(--black);}
+.dark-gray { color: var(--dark-gray);}
+.light-gray { color: var(--light-gray);}
+.dark-green { color: var(--dark-green);}
+.light-green { color: var(--light-green)}
+
+
+/* Typography Utility Classes */
+.text-sm { font-size: var(--text-sm); }
+.text-base { font-size: var(--text-base); }
+.text-md { font-size: var(--text-md); }
+.text-lg { font-size: var(--text-lg); }
+.text-xl { font-size: var(--text-xl); }
+.text-2xl { font-size: var(--text-2xl); } /* mobile base */
+
+/* Document Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* Placeholder font for now */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    transition: .2s linear;
 }
 
-#hero-section {
-    background-image: url(../images/hero.jpeg);
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    /* Helps read rem values without tedious math */
+    font-size: 62.5%;
+    overflow-x: hidden;
 }
+
+body {
+    font-size: 1.6rem;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    padding: 1.5rem 5%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);
+}
+
+header #nav-toggle {
+    display: none;
+}
+
+header #hamburger-menu {
+    font-size: var(--text-lg);
+    color: var(--dark-gray);
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    border: .1rem solid rgba(0,0,0,0.3);
+    display: block;
+}
+
+
+header #navbar {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+    background: var(--light-gray);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 0.3s ease;
+}
+
+/* Smooth dropdown on checked */
+header #nav-toggle:checked ~ #navbar {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+header #navbar a {
+    color: var(--dark-gray);
+    margin: 1.5rem;
+    padding: 1.5rem;
+    background: var(--white);
+    border: .1rem solid rgba(0,0,0,0.1);
+    display: block;
+}
+
+header #navbar a:hover {
+    color: var(--light-green);
+}
+
+header #icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+header #icons i {
+    font-size: var(--text-lg);
+    color: var(--dark-gray);
+    margin-left: 2rem;
+    cursor: pointer;
+}
+
+header #icons i:hover {
+    color: var(--light-green);
+}
+
+/* Main: Hero section */
+
+/* Adds some spacing between main and header */
+main {
+    padding-top: 7rem;
+}
+
+/* Mobile: stack image on top, content below */
+#hero-section {
+    display: flex;
+    flex-direction: column;
+}
+
+#hero-image img {
+    width : 100%;
+    height: 40vh;
+    object-fit: cover;
+}
+
+#hero-section #hero-content {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+#hero-section #hero-content h2 {
+    line-height: 1.2;
+}
+
+#hero-section #cta-button {
+    background: var(--dark-green);
+    color: var(--white);
+    padding: 1.2rem 3rem;
+    border: none;
+    border-radius: .5rem;
+    font-size: var(--text-base);
+    cursor: pointer;
+    letter-spacing: .15rem;
+}
+#hero-section #cta-button:hover {
+    background: var(--light-green);
+}
+
+/* Media queries */
+
+/* Tablet and above */
+@media (min-width: 768px) {
+
+    /* Typography: desktop (only the values that need to increase */
+    :root {
+        --text-xl: 4.5rem;
+        --text-2xl: 6rem;
+    }
+
+    /* Header */
+    header {
+        padding: 2rem 9%;
+    }
+
+    header #hamburger-menu {
+        display: none;
+    }
+
+    header #navbar {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        gap: 3rem;
+        padding: 0;
+        background: none;
+        box-shadow: none;
+        clip-path: none;
+    }
+
+    header #navbar a {
+        font-size: var(--text-base);
+        background: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    header #icons i {
+        font-size: var(--text-lg);
+    }
+
+    /* Main: Hero Section */
+    #hero-section {
+        flex-direction: row;
+        min-height: 80vh;
+        align-items: center;
+    }
+
+    #hero-section #hero-image {
+        flex: 1;
+    }
+
+    #hero-section #hero-image img {
+        height: 80vh;
+    }
+
+    #hero-section #hero-content {
+        flex: 1;
+        padding: 0 6rem;
+    }
+
+}
+
 
