@@ -10,12 +10,12 @@
     --light-green: #00b370;
 
     /* Typography: mobile */
-    --text-sm: 1.4rem; 
+    --text-sm: 1.2rem; 
     --text-base: 1.6rem; 
     --text-md: 1.8rem; 
-    --text-lg: 2.4rem; 
-    --text-xl: 3rem; 
-    --text-2xl: 3.5rem; 
+    --text-lg: 2rem; 
+    --text-xl: 2.4rem; 
+    --text-2xl: 3rem;  
 }
 
 /* Color Utility Classes */
@@ -34,40 +34,39 @@
 .text-md { font-size: var(--text-md); }
 .text-lg { font-size: var(--text-lg); }
 .text-xl { font-size: var(--text-xl); }
-.text-2xl { font-size: var(--text-2xl); } /* mobile base */
+.text-2xl { font-size: var(--text-2xl); } 
 
 /* Document Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* Placeholder font for now */
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;   /* Placeholder font for now */
     text-decoration: none;
     transition: .2s linear;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 6rem;
-    /* Helps read rem values without tedious math */
+    scroll-padding-top: 6.3rem;   /* make sure this value matches header height for sticky position */
     font-size: 62.5%;
     overflow-x: hidden;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-size: 1.6rem;
 }
 
 /* Header */
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    background: var(--white);
-    padding: 1.5rem 5%;
     z-index: 1000;
+    background: var(--white);
+    padding: 1.2rem 4%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -79,13 +78,17 @@ header #nav-toggle {
 }
 
 header #hamburger-menu {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
+    font-weight: bold;
     color: var(--dark-gray);
     border-radius: .5rem;
-    padding: .5rem 1.5rem;
+    padding: .3rem .8rem;
     cursor: pointer;
-    border: .1rem solid rgba(0,0,0,0.3);
-    display: block;
+}
+
+header #hamburger-menu:hover {
+    background: rgba(0,0,0,0.1);
+    border-radius: .5rem;
 }
 
 
@@ -110,11 +113,13 @@ header #nav-toggle:checked ~ #navbar {
 
 header #navbar a {
     color: var(--dark-gray);
+    font-size: var(--text-md);
+    font-weight: bold;
     margin: 1.5rem;
-    padding: 1.5rem;
+    padding: 1.2rem 2rem;
     background: var(--white);
-    border: .1rem solid rgba(0,0,0,0.1);
     display: block;
+
 }
 
 header #navbar a:hover {
@@ -129,9 +134,9 @@ header #icons {
 }
 
 header #icons i {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     color: var(--dark-gray);
-    margin-left: 2rem;
+    margin-left: .8rem;
     cursor: pointer;
 }
 
@@ -139,15 +144,13 @@ header #icons i:hover {
     color: var(--light-green);
 }
 
-/* Main: Hero section */
-
-/* Adds some spacing between main and header */
+/* Main */
 main {
-    padding-top: 7rem;
+    flex: 1;
 }
 
 /* Mobile: stack image on top, content below */
-#hero-section {
+main #hero-section {
     display: flex;
     flex-direction: column;
 }
@@ -158,7 +161,7 @@ main {
     object-fit: cover;
 }
 
-#hero-section #hero-content {
+main #hero-section #hero-content {
     padding: 3rem 2rem;
     display: flex;
     flex-direction: column;
@@ -166,11 +169,11 @@ main {
     gap: 1.5rem;
 }
 
-#hero-section #hero-content h2 {
+main #hero-section #hero-content h2 {
     line-height: 1.2;
 }
 
-#hero-section #cta-button {
+main #hero-section #cta-button {
     background: var(--dark-green);
     color: var(--white);
     padding: 1.2rem 3rem;
@@ -180,19 +183,56 @@ main {
     cursor: pointer;
     letter-spacing: .15rem;
 }
-#hero-section #cta-button:hover {
+
+main #hero-section #cta-button:hover {
     background: var(--light-green);
 }
 
-/* Media queries */
+/* Media Queries */
+/* Small tablet: Still mobile but more breathing room */
+@media (min-width: 480px) {
+    html {
+        scroll-padding-top: 6.9rem;
+    }
 
-/* Tablet and above */
+    header {
+        padding: 1.5rem 6%;
+    }
+
+    header #icons i {
+        font-size: var(--text-md);
+        margin-left: 1.2rem;
+    }
+}
+
+/* Large Tablet: more spacing, still mobile layout */
 @media (min-width: 768px) {
+    html {
+        scroll-padding-top: 7.9rem;
+    }
 
-    /* Typography: desktop (only the values that need to increase */
+    /* Header */
+    header {
+        padding: 2rem 9%;
+    }
+
+    header #icons i {
+        font-size: var(--text-lg);
+        margin-left: 1.5rem;
+    }
+
+    /* Main */
+    main #hero-section #hero-content {
+        padding: 3rem 4rem;
+    }
+}
+
+/* Desktop: full layout switch */
+@media (min-width: 1024px) {
     :root {
-        --text-xl: 4.5rem;
-        --text-2xl: 6rem;
+    --text-lg: 2.4rem;
+    --text-xl: 3.5rem;
+    --text-2xl: 6rem;
     }
 
     /* Header */
@@ -221,32 +261,28 @@ main {
         border: none;
         margin: 0;
         padding: 0;
+        font-weight: normal;
     }
 
     header #icons i {
         font-size: var(--text-lg);
+        margin-left: 1.8rem;
     }
 
-    /* Main: Hero Section */
-    #hero-section {
+    /* Main */
+    main #hero-section {
         flex-direction: row;
-        min-height: 80vh;
+        /* min-height: 45vh; */
         align-items: center;
     }
 
-    #hero-section #hero-image {
+    main #hero-section #hero-image {
         flex: 1;
     }
 
-    #hero-section #hero-image img {
-        height: 80vh;
-    }
-
-    #hero-section #hero-content {
+    main #hero-section #hero-content {
         flex: 1;
         padding: 0 6rem;
     }
-
 }
-
 
