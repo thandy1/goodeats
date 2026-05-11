@@ -454,6 +454,116 @@ footer p {
     background: var(--light-green);
 }
 
+/* Cart */
+#shopping-cart {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#shopping-cart h2 {
+    color: var(--dark-gray);
+    text-align: center;
+}
+
+#cart-wrapper {
+    overflow-x: auto;   
+}
+
+#cart-table {
+    width: 100%;
+    border-collapse: collapse;  
+    min-width: 500px;
+}
+
+#cart-table th {
+    background: var(--dark-green);
+    color: var(--off-white);
+    padding: 1.2rem 1.5rem;
+    font-size: var(--text-sm);
+    letter-spacing: .1rem;
+}
+
+#cart-table td {
+    padding: 1.2rem 1.5rem;
+    color: var(--dark-gray);
+    font-size: var(--text-sm);
+    border-bottom: .1rem solid rgba(0,0,0,0.08);
+}
+
+/* Alternating row colors for readability */
+#cart-table tbody tr:nth-child(even) {
+    background: var(--off-white);
+}
+
+#cart-table tbody tr:hover {
+    background: rgba(0,179,112,0.08); /* light green tint on hover */
+}
+
+.remove-btn {
+    background: none;
+    border: .1rem solid var(--light-gray);
+    color: var(--light-gray);
+    padding: .4rem .8rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-size: var(--text-sm);
+    transition: .2s linear;
+}
+
+.remove-btn:hover {
+    background: red;
+    color: var(--white);
+    border-color: red;
+}
+
+#cart-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background: var(--off-white);
+    border-radius: 1rem;
+    align-self: flex-end;
+    min-width: 250px;
+}
+
+#cart-summary p {
+    color: var(--dark-gray);
+    font-size: var(--text-sm);
+    display: flex;
+    justify-content: space-between;
+}
+
+.demo-notice {
+    font-style: italic;
+}
+
+#cart-total {
+    font-weight: bold;
+    font-size: var(--text-base) !important;
+    border-top: .1rem solid var(--light-gray);
+    padding-top: 1rem;
+}
+
+#checkout-btn {
+    background: var(--dark-green);
+    color: var(--white);
+    padding: 1.2rem;
+    border: none;
+    border-radius: .5rem;
+    font-size: var(--text-base);
+    cursor: pointer;
+    letter-spacing: .15rem;
+    transition: .2s linear;
+    width: 100%;
+}
+
+#checkout-btn:hover {
+    background: var(--light-green);
+}
+
 /* Media Queries */
 /* Tablet: more spacing, still mobile layout */
 @media (min-width: 768px) {

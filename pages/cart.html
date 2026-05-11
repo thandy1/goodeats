@@ -37,6 +37,62 @@
         </div>
 
     </header>
+
+    <main>
+        <section id="shopping-cart">
+            <h2>Your Cart</h2>
+            <!-- Cart Table/Register (track user orders on cart append) -->
+            <div id="cart-wrapper">
+                <table id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Items</th>
+                            <th>Calories</th>
+                            <th>Qty</th>
+                            <th>Prices</th>
+                            <th>Date Added</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cheeseburger</td>
+                            <td>1200 Cals</td>
+                            <td>1</td>
+                            <td>$8.99</td>
+                            <td>May 9, 2026</td>
+                            <td><button class="remove-btn">✕</button></td>
+                        </tr>
+                        <tr>
+                            <td>Pepperoni Pizza</td>
+                            <td>900 Cals</td>
+                            <td>2</td>
+                            <td>$25.98</td>
+                            <td>May, 9 2026</td>
+                            <td><button class="remove-btn">✕</button></td>
+                        </tr>
+                        <tr>
+                            <td>Street Tacos</td>
+                            <td>600 Cals</td>
+                            <td>1</td>
+                            <td>$7.99</td>
+                            <td>May 9, 2026</td>
+                            <td><button class="remove-btn">✕</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Order summary -->
+            <div id="cart-summary">
+                <p>Subtotal: <span>$42.96</span></p>
+                <p>Tax: (%8): <span>$3.44</span></p>
+                <p id="cart-total">Total: <span>$46.40</span></p>
+                <p class="demo-notice">Shopping cart is for demonstration purposes only.</p>
+                <button type="button" id="checkout-btn">PLACE ORDER</button>
+            </div>
+        </section>
+    </main>
     
     <footer>
         <!-- Quick navigation -->
